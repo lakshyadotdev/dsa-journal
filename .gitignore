@@ -1,0 +1,25 @@
+# Compiled executables (g++ default output: filename with no extension)
+# Match all files, then re-include anything with a dot
+*
+!*/
+!*.*
+
+# C/C++ build artifacts
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+*.gch
+
+# Editor / OS junk
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~
