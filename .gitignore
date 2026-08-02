@@ -19,7 +19,7 @@
 
 # Editor / OS junk
 .DS_Store
-.vscode/
+
 .idea/
 *.swp
 *~
