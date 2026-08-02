@@ -16,6 +16,5 @@ A personal log of Data Structures & Algorithms problems I solve, organized by pl
 
 - [`leetcode/`](./leetcode) — LeetCode solutions, one folder per problem.
 - [`gfg/`](./gfg) — GeeksforGeeks solutions, grouped by difficulty.
-- [`Sorting/`](./Sorting) — Standalone sorting algorithm implementations.
 
 > The Index table above is auto-updated by the [Update Problem Index](./.github/workflows/update-index.yml) workflow whenever solutions are added under `leetcode/` or `gfg/`.
