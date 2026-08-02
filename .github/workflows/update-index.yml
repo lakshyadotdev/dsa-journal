@@ -1,0 +1,82 @@
+name: Update Problem Index
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'leetcode/**'
+      - 'gfg/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Count problems and update README
+        env:
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          # Count LeetCode problems: immediate subdirectories of leetcode/ (excluding hidden files like .empty)
+          leetcode_count=$(find leetcode -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+
+          # Count GFG problems: all leaf subdirectories under gfg/
+          # (gfg/<Difficulty>/<Problem>)
+          gfg_count=$(find gfg -mindepth 2 -type d | wc -l | tr -d ' ')
+
+          echo "LeetCode problems: $leetcode_count"
+          echo "GFG problems: $gfg_count"
+
+          # Update README.md between the index markers. If markers are missing, append a section.
+          {
+            echo "<!-- INDEX-START -->"
+            echo "## Index"
+            echo ""
+            echo "| Platform | Problems Solved |"
+            echo "| --- | ---: |"
+            echo "| LeetCode | $leetcode_count |"
+            echo "| GeeksforGeeks | $gfg_count |"
+            echo "| **Total** | **$((leetcode_count + gfg_count))** |"
+            echo "<!-- INDEX-END -->"
+          } > index.tmp
+
+          if grep -q "<!-- INDEX-START -->" README.md; then
+            # Replace the existing block (sed -i with portable handling)
+            awk '
+              BEGIN { in_block=0 }
+              /<!-- INDEX-START -->/ { system("cat index.tmp"); in_block=1; next }
+              /<!-- INDEX-END -->/   { in_block=0; next }
+              in_block==0 { print }
+            ' README.md > README.new
+            mv README.new README.md
+          else
+            {
+              cat README.md
+              echo ""
+              cat index.tmp
+            } > README.combined
+            mv README.combined README.md
+          fi
+
+          rm -f index.tmp
+
+      - name: Commit and push if changed
+        run: |
+          set -euo pipefail
+          if git diff --quiet README.md; then
+            echo "README.md unchanged. Nothing to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: update problem index [skip ci]"
+          git push
