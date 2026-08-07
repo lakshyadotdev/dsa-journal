@@ -1,0 +1,5 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/hollow-rectangle-or-square/1?">Print Hollow Rectangle</a></h2><h3>Difficulty Level : Difficulty: Basic</h3><hr><div class="problems_problem_content__Xm_eO" style="--text-color: var(--problem-text-color);"><p><span style="font-size: 18px;">Given two integers&nbsp;<strong>n</strong>&nbsp;and&nbsp;<strong>m</strong>, print a hollow rectangle pattern consisting of n rows and m columns.</span></p>
+<p><span style="font-size: 18px;"><strong>Examples:</strong></span></p>
+<pre><span style="font-size: 18px;"><strong>Input</strong>: n = 3, m = 5<br><strong>Output:</strong><br>*****<br>*   *<br>*****<br></span></pre>
+<pre><span style="font-size: 18px;"><strong>Input</strong>: n = 4, m = 3<br><strong>Output:</strong><br>***<br>* *<br>* *  <br>*** <br></span></pre>
+<p><span style="font-size: 18px;"><strong>Constraints:<br></strong></span><span style="font-size: 18px;">1 ≤ n ≤ 100<br>1 ≤ m ≤&nbsp;</span><span style="font-size: 18px;">100</span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>pattern-printing</code>&nbsp;
