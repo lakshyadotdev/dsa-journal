@@ -8,8 +8,8 @@ A personal log of Data Structures & Algorithms problems I solve, organized by pl
 | Platform | Problems Solved |
 | --- | ---: |
 | LeetCode | 7 |
-| GeeksforGeeks | 22 |
-| **Total** | **29** |
+| GeeksforGeeks | 23 |
+| **Total** | **30** |
 <!-- INDEX-END -->
 
 ## Folders
