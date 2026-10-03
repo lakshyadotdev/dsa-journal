@@ -581,5 +581,3 @@ range-based questions answered in one pass
 - Array positions can act as hash slots when values are range-limited.
 - Variable-length data can be packed unambiguously with length prefixes.
 - Techniques compose: accumulation + lookup, counting + ranking, sorting + scanning, prefix + suffix.
-
-I can also put this chapter into a downloadable file (Markdown or Word) if you'd like.
