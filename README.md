@@ -7,9 +7,9 @@ A personal log of Data Structures & Algorithms problems I solve, organized by pl
 
 | Platform | Problems Solved |
 | --- | ---: |
-| LeetCode | 35 |
+| LeetCode | 36 |
 | GeeksforGeeks | 24 |
-| **Total** | **59** |
+| **Total** | **60** |
 <!-- INDEX-END -->
 
 ## Folders
