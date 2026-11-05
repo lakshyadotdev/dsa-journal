@@ -98,6 +98,20 @@ void delete(Node *head, int pos)
     free(nodetodel);
 }
 
+Node *reverseList(Node *head)
+{
+    Node *prev = NULL;
+    Node *curr = head;
+    while (curr != NULL)
+    {
+        Node *nxt = curr->next; // save
+        curr->next = prev;      // flip
+        prev = curr;            // advance
+        curr = nxt;
+    }
+    return prev;
+}
+
 int main()
 {
     Node *head = NULL;
@@ -106,7 +120,7 @@ int main()
     append(head, 3);
     append(head, 23);
     print(head);
-    delete(head, 2);
+    head = reverseList(head);
     print(head);
     return 0;
 }
